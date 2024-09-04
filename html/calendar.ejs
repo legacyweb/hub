@@ -1,0 +1,56 @@
+<table width="100%">
+    <tr>
+        <td><a href="<%= lastMonth %>" style="color:blue">&lt;&lt;</a></td>
+        <td colspan="5"><center><h3><%= month %> <%= year %></h3></center></td>
+        <td align="right"><a href="<%= nextMonth %>" style="color:blue">&gt;&gt;</a></td>
+    </tr>
+    <tr>
+        <td bgcolor="darkgrey">Su</td>
+        <td bgcolor="darkgrey">M</td>
+        <td bgcolor="darkgrey">T</td>
+        <td bgcolor="darkgrey">W</td>
+        <td bgcolor="darkgrey">Th</td>
+        <td bgcolor="darkgrey">F</td>
+        <td bgcolor="darkgrey">Sa</td>
+    </tr>
+    <% let i = 0;
+       while (i < days.length) {
+    %>
+    <tr>
+         <% for(let d = 0; d < 7; d++) { 
+              let current = {
+                day: '',
+                events: [''],
+                color: 'white'
+              };
+              if (i < days.length) {
+                let day = new Date(days[i].date);
+                if (((day.getDay() + 1) % 7) === d) {
+                  current = days[i];
+                  current.day = Number(day.getUTCDate()).toString();
+                  i += 1;
+                }
+              }
+          %>
+            <td>
+                <% if (current.day) { %>
+                <table width="100%">
+                    <tr>
+                        <td bgcolor="darkgrey"><b><%= current.day %></b></td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="<%= current.color %>" height="120px">
+                            <% current.events.forEach(e => { %>
+                                <small><%= e %></small>
+                                <br>
+                            <% }); %>
+                        </td>
+                    </tr>
+                </table>
+                <% } %>
+            </td>
+         <% } %>
+    </tr>
+    <%   
+       }%>
+</table>

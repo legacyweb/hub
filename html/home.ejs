@@ -1,0 +1,26 @@
+<table width="100%">
+    <tr>
+        <td align="left" width="64px"><img src="<%= weatherInfo.current.condition.icon %>"></td>
+        <td align="left">
+            <table>
+                <tr>
+                    <td colspan="2"><small><b><%= location.city %>, <%= location.state %></b></small></td>
+                </tr>
+                <tr>
+                    <td><small><%= weatherInfo.current.temp_f %> F</small></td>
+                    <td><small><%= weatherInfo.current.condition.text %></small></td>
+                </tr>
+            </table>
+        </td>
+        <td align="right">
+            <table bgcolor="<%= liturgical.celebrations[0].colour %>">
+                <tr>
+                    <td><b><%= Date(liturgical.date).split(' ').slice(0,4).join(' ') %> (<%= liturgical.celebrations[0].rank %>)</b></td>
+                </tr>
+                <tr>
+                    <td><small><b><%= liturgical.celebrations[0].title %></b></small></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "axios": "^1.7.5",
+    "cookie-parser": "^1.4.6",
+    "datejs": "^1.0.0-rc3",
+    "jimp": "^0.22.12",
+    "legacyweb-pages": "^1.0.8",
+    "lru-cache": "^11.0.0",
+    "weather-api-client": "^1.0.2",
+    "zipcodes": "^8.0.0"
+  }
+}

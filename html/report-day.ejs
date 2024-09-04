@@ -1,0 +1,17 @@
+<center>
+    <h3><%= location.city %>, <%= location.state %></h3>
+    <h4><%= day %></h4>
+    <table border="0" cellpadding="4" cellspacing="0">
+        <% weatherInfo.hour.forEach(h => { %>
+        <tr>
+            <td colspan="4" bgcolor="darkgrey"><b><%= h.timeText %></b></td>
+        </tr>
+        <tr>
+            <td><img src="<%= h.condition.icon %>"></td>
+            <td><%= h.condition.text %></td>
+            <td>H: <%= h.humidity %>%</td>
+            <td><%= h.temp_f %> F</td>
+        </tr>
+        <% }); %>
+    </table>
+</center>
