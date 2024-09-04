@@ -1,3 +1,12 @@
+<form action="/calendar" id="selection">
+    <select name="selection" id="selection" form="selection">
+            <option value="">None</option>
+        <% Object.keys(selections).forEach(s => { %>
+            <option value="<%= s %>"><%= s %></option>
+        <% }); %>
+        <input type="submit" value="Select">
+    </select>
+</form>
 <table width="100%">
     <tr>
         <td><a href="<%= lastMonth %>" style="color:blue">&lt;&lt;</a></td>
