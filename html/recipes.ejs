@@ -1,0 +1,11 @@
+<form action="/recipes" id="search">
+    <select name="source" id="source" form="search">
+        <% sources.forEach(s => { %>
+            <option value="<%= s.id %>"><%= s.text %></option>
+        <% }); %>
+    </select>
+    <input type="text" name="search" id="search">
+    <input type="submit" value="Search">
+</form>
+
+</table>

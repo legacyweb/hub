@@ -1,0 +1,21 @@
+<table border="1px" width="100%">
+    <tr>
+        <td colspan="2" bgcolor="#808080"><center><h2>Listing of <%= path %></h2></center></td>
+    </tr>
+    <tr>
+        <td><a href="/fileserver/<%= backPath %>" style="color:green">..</a></td>
+        <td>directory</td>
+    </tr>
+    <% directories.forEach(d => { %>
+    <tr>
+        <td><a href="/fileserver/<%= d %>" style="color:green"><%= d %></a></td>
+        <td>directory</td>
+    </tr>
+    <% }); %>
+    <% files.forEach(f => { %>
+    <tr>
+        <td><a href="/download/<%= f.name %>" style="color:blue"><%= f.name %></a></td>
+        <td><%= f.size %></td>
+    </tr>
+    <% }); %>
+</table>

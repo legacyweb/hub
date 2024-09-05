@@ -11,6 +11,8 @@ const weather = require('./lib/weather');
 // Content generator
 const report = require('./lib/report');
 const calendar = require('./lib/calendar');
+const recipes = require('./lib/recipes');
+const {download, fileServer, fServerRecursive} = require('./lib/fileserver');
 
 const HTML_PATH = path.join(__dirname, 'html');
 const header = fs.readFileSync(path.join(HTML_PATH, 'header.html'), 'utf-8');
@@ -56,6 +58,37 @@ HomePage.addLink({
   text: 'Calendar'
 });
 
+HomePage.addPage({
+  title: 'Recipes',
+  path: '/recipes',
+  gen: recipes
+});
+
+HomePage.addLink({
+  url: '/recipes',
+  text: 'Recipes'
+});
+
+HomePage.addPage({
+  title: 'Files',
+  path: '/fileserver',
+  gen: fileServer
+});
+
+HomePage.addPage({
+  title: 'Files',
+  path: '/fileserver/*',
+  gen: fileServer
+});
+
+HomePage.addLink({
+  url: '/fileserver/',
+  text: 'Files'
+});
+
 HomePage.app.use('/icons/:icon', imageCache.icon());
+HomePage.app.use('/download/*', download);
+//HomePage.app.use('/fileserver/*', fServerRecursive);
+
 
 HomePage.start();

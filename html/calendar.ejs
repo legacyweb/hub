@@ -4,8 +4,8 @@
         <% Object.keys(selections).forEach(s => { %>
             <option value="<%= s %>"><%= s %></option>
         <% }); %>
-        <input type="submit" value="Select">
     </select>
+    <input type="submit" value="Select">
 </form>
 <table width="100%">
     <tr>
@@ -14,13 +14,13 @@
         <td align="right"><a href="<%= nextMonth %>" style="color:blue">&gt;&gt;</a></td>
     </tr>
     <tr>
-        <td bgcolor="darkgrey">Su</td>
-        <td bgcolor="darkgrey">M</td>
-        <td bgcolor="darkgrey">T</td>
-        <td bgcolor="darkgrey">W</td>
-        <td bgcolor="darkgrey">Th</td>
-        <td bgcolor="darkgrey">F</td>
-        <td bgcolor="darkgrey">Sa</td>
+        <td bgcolor="#808080">Su</td>
+        <td bgcolor="#808080">M</td>
+        <td bgcolor="#808080">T</td>
+        <td bgcolor="#808080">W</td>
+        <td bgcolor="#808080">Th</td>
+        <td bgcolor="#808080">F</td>
+        <td bgcolor="#808080">Sa</td>
     </tr>
     <% let i = 0;
        while (i < days.length) {
@@ -45,7 +45,7 @@
                 <% if (current.day) { %>
                 <table width="100%">
                     <tr>
-                        <td bgcolor="darkgrey"><b><%= current.day %></b></td>
+                        <td bgcolor="#808080"><b><%= current.day %></b></td>
                     </tr>
                     <tr>
                         <td bgcolor="<%= current.color %>" height="120px">
