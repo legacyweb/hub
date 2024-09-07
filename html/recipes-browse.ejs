@@ -1,0 +1,53 @@
+<table width="100%" border="1px">
+    <tr>
+        <td colspan="2">
+            <table bgcolor="#808080" width="100%" height="60px">
+                <td bgcolor="#808080" style="vertical-align: center;" width="250px">
+                    <br>
+                    <form action="/recipes" id="search">
+                        <input type="hidden" name="action" id="action" value="search" form="search">
+                        <input type="text" name="q" id="q" form="search">
+                        <input type="submit" value="Search">
+                    </form>
+                </td>
+                <td bgcolor="#808080" style="text-align:left;"><a href="/recipes/explore">Explore</a></td>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#808080"><b>Title</b></td>
+        <td bgcolor="#808080"><b>Categories</b></td>
+    </tr>
+    <% let i = begin;
+       recipes.forEach(r => { %>
+        <tr>
+            <td>
+                <font size=2><b><a href="/recipes?action=view&id=<%= i %>" style="color:blue"><%= r.title %></a></b></font>
+            </td>
+            <td>
+                <small><%= r.categories.join(', ') %></small>
+            </td>
+        </tr>
+    <%    i += 1;
+        }); %>
+    <% if (action !== 'search') { %>
+    <tr>
+        <td style="text-align:left" bgcolor="#808080">
+            <a href="/recipes?begin=0&limit=<%= limit %>">&lt&lt</a>
+            &nbsp;
+            <% if (begin > 0) {
+                %>
+                <a href="/recipes?begin=<%= begin-limit %>&limit=<%= limit %>">&lt</a>
+            <% } %>
+        </td>
+        <td style="text-align:right" bgcolor="#808080">
+            <% if (begin + limit < total) {
+                %>
+                <a href="/recipes?begin=<%= begin+limit %>&limit=<%= limit %>">&gt</a>
+            <% } %>
+            &nbsp;
+            <a href="/recipes?begin=<%= total-limit %>&limit=<%= limit %>">&gt&gt</a>
+        </td>
+    </tr>
+    <% } %>
+</table>

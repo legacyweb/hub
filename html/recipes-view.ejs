@@ -1,0 +1,50 @@
+<table width="100%">
+    <tr>
+        <td><center><h2><%= recipe.title %></h2></center></td>
+    </tr>
+    <tr>
+        <td>
+            <center>
+                <table cellpadding="4" bgcolor="#ffffd7">
+                    <tr>
+                        <td>
+                            <small>Yield: <%= recipe.yield %></small>
+                        </td>
+                        <td>
+                            <small>Active Time: <%= recipe.active || 'N/A' %></small>
+                        </td>
+                        <td>
+                            <small>Total Time: <%= recipe.total || 'N/A' %></small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><small>Categories: <%= recipe.categories.join(', ') %></small></td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="grey" colspan="3" height="2px"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h4>Ingredients</h4>
+                            <ul>
+                            <% recipe.ingredients.forEach(i => { %>
+                                <li><small><%= i %></small></li>
+                            <% }); %>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <h4>Instructions</h4>
+                            <ol>
+                                <% recipe.instructions.forEach(i => { %>
+                                    <li><small><%= i %></small></li>
+                                <% }); %>
+                            </ol>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </td>
+    </tr>
+</table>
